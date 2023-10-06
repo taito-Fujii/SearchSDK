@@ -23,7 +23,6 @@ const withPageTracking =
       PageController.getContext().setPageUri(uri);
 
       if (id && pageType === PAGE_EVENTS_PDP) {
-        trackEntityPageViewEvent(ENTITY_CONTENT, [{ id }]);
       } else {
         trackPageViewEvent(pageType);
       }
