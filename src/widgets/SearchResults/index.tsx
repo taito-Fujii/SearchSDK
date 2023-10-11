@@ -263,7 +263,9 @@ export const SearchResultsWithLayoutOptionComponent = ({
                       {articles.map((a, index) => (
                         <ArticleCardRowStyled.Root key={`${a.id}@${a.source_id}@${language}`}>
                           <ArticleCardRowStyled.Left>
-                            <ArticleCardRowStyled.Image src={a.image_url || a.image || DEFAULT_IMAGE} />
+                            <ArticleCardRowStyled.Image
+                              src={`https://jpn-tokyo-page-capture.azurewebsites.net/api/webthumbnail?url=${a.url}`}
+                            />
                           </ArticleCardRowStyled.Left>
                           <ArticleCardRowStyled.Right>
                             <ArticleCardRowStyled.Title>
@@ -286,7 +288,10 @@ export const SearchResultsWithLayoutOptionComponent = ({
                                 highlightElement={HIGHLIGHT_DATA.highlightTag}
                               />
                             </ArticleCardRowStyled.Content>
-                            <ArticleCardRowStyled.Type>{a.type ? a.type : 'Unknown'}</ArticleCardRowStyled.Type>
+                            <ArticleCardRowStyled.Type>
+                              {a.type ? a.type : 'Unknown'}
+                              {a.image_url}
+                            </ArticleCardRowStyled.Type>
                           </ArticleCardRowStyled.Right>
                         </ArticleCardRowStyled.Root>
                       ))}
